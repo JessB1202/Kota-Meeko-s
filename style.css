@@ -1,0 +1,25 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+li {
+    font-size: 20px;
+}
+
+#logo {
+    height: 30px;
+    width: 30px;
+}
+
+#cart {
+    height: 30px;
+    width: 30px;
+}
+.navItems {
+    list-style-type: none; 
+    display: inline;
+
+}
