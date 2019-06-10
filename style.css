@@ -18,8 +18,38 @@ li {
     height: 30px;
     width: 30px;
 }
+
+#navigationBar {
+    /* position: fixed; */
+}
+
+
 .navItems {
     list-style-type: none; 
     display: inline;
 
+}
+
+.food, .toys, .cleaning {
+    height: 400px;
+    width: 100%;
+    border: 1px solid blue;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.product {
+    height: 250px;
+    width: 250px;
+    border: 1px solid red;
+    top: 50%;
+    transform: translateY(25%);
+}
+
+.test {
+    background-image: url(img/dogfoodpic.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
