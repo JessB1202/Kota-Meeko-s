@@ -1,3 +1,8 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 ul {
     display: flex;
     flex-direction: row;
@@ -20,7 +25,10 @@ li {
 }
 
 #navigationBar {
-    /* position: fixed; */
+    position: fixed;
+    background-color: aqua;
+    height: 100px;
+    width: 100%;
 }
 
 
@@ -32,13 +40,18 @@ li {
 
 .food, .toys, .cleaning {
     height: 400px;
-    width: 100%;
+    width: 80%;
     border: 1px solid blue;
     margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+
+.food {
+    margin-top: 150px;
+}
+
 
 .product {
     height: 250px;
