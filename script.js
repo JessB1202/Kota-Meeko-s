@@ -7,7 +7,7 @@ const toysLink = document.getElementById("toysLink");
 const cleaningLink = document.getElementById("cleaningLink");
 
 foodLink.addEventListener('click', function(){
-    foodCategory.scrollIntoView();
+    foodCategory.scrollTo(0,0);
 });
 
 toysLink.addEventListener('click', function(){
