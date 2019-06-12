@@ -65,7 +65,9 @@ li {
     transform: translateY(25%);
 }
 
-.test {
+.food-logo, .toy-logo, .clean-logo, .access-logo {
+    width: 90%;
+    height: 90%;
     background-image: url(img/dogfoodpic.jpg);
     background-size: contain;
     background-repeat: no-repeat;
