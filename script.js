@@ -26,6 +26,24 @@ accessoriesLink.addEventListener('click', function(){
 
 });
 
+const dryProduct = document.querySelectorAll(".food-logo");
+const dryPop = document.querySelectorAll(".popup");
+
+foodCategory.addEventListener("click", function(e){
+    for (let index = 0; index < dryProduct.length; index++) {
+        if (dryProduct[index] === e.target) {
+            
+            // dryProduct[index].src = "";
+            // dryProduct[index].alt = "";
+            // e.target.style.display = dryPop[index];
+            dryPop[index].style.display = "block";
+            console.log(dryProduct[index]);
+            console.log(e.target);
+        }
+    }
+
+})
+
 let numberOfItemsInCart = document.getElementById("itemsInCart");
 let displayTotal = document.getElementById("displayTotal");
 

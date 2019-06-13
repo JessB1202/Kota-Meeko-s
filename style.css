@@ -23,7 +23,7 @@ li {
     left: 50%;
 }
 
-#topCategory {
+#foodCategory {
     margin-top: 150px;
 }
 
@@ -83,6 +83,27 @@ li {
     background-repeat: no-repeat;
 }
 
+
+.food-logo1 {
+  width: 90%;
+  height: 90%;
+  background-image: url(img/dogfoodpic.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  text-align: center;
+  color: white;
+  background-color: black;
+  opacity: 0.7;
 
 #cartInfo {
     height: 60px;
