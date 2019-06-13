@@ -1,3 +1,4 @@
+const cart = [];
 const foodCategory = document.getElementById("foodCategory");
 const toysCategory = document.getElementById("toysCategory");
 const cleaningCategory = document.getElementById("cleaningCategory");
@@ -24,3 +25,9 @@ accessoriesLink.addEventListener('click', function(){
     accessoriesCategory.scrollIntoView();
 
 });
+
+let numberOfItemsInCart = document.getElementById("itemsInCart");
+let displayTotal = document.getElementById("displayTotal");
+
+numberOfItemsInCart.innerHTML = `Number Of Items ${cart.length}`;
+displayTotal.innerHTML = `Total $TBD`;
