@@ -26,22 +26,25 @@ accessoriesLink.addEventListener('click', function(){
 
 });
 
-const dryProduct = document.querySelectorAll(".food-logo");
-const dryPop = document.querySelectorAll(".popup");
+const productImage = document.querySelectorAll(".logo");
+const productDescription = document.querySelectorAll(".popup");
 
-foodCategory.addEventListener("click", function(e){
-    for (let index = 0; index < dryProduct.length; index++) {
-        if (dryProduct[index] === e.target) {
-            
-            // dryProduct[index].src = "";
-            // dryProduct[index].alt = "";
-            // e.target.style.display = dryPop[index];
-            dryPop[index].style.display = "block";
-            console.log(dryProduct[index]);
-            console.log(e.target);
+document.addEventListener("mouseover", function(e){
+    for (let index = 0; index < productImage.length; index++) {
+        if (productImage[index] === e.target) {
+            productDescription[index].style.display = "block";
+            break;
         }
     }
+})
 
+document.addEventListener("mouseout", function(e){
+    for (let index = 0; index < productImage.length; index++) {
+        if (productImage[index] === e.target) {
+            productDescription[index].style.display = "none";
+            break;
+        }
+    }
 })
 
 let numberOfItemsInCart = document.getElementById("itemsInCart");
