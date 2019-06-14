@@ -9,6 +9,13 @@ const toysLink = document.getElementById("toysLink");
 const cleaningLink = document.getElementById("cleaningLink");
 const accessoriesLink = document.getElementById("accessoriesLink");
 
+class NewItem {
+    constructor(_newItemName, _newItemPrice){
+        this.name = _newItemName;
+        this.price = _newItemPrice;
+    }
+};
+
 foodLink.addEventListener('click', function(){
     window.scrollTo(0,0);
 });
@@ -47,8 +54,23 @@ document.addEventListener("mouseout", function(e){
     }
 })
 
-let numberOfItemsInCart = document.getElementById("itemsInCart");
-let displayTotal = document.getElementById("displayTotal");
+let addToCartBtns = document.getElementsByClassName("addToCartButton");
+for(let i = 0; i < addToCartBtns.length; i++){
+    addToCartBtns[i].addEventListener('click', function(){
+        newItem = new NewItem (addToCartBtns[i].dataset.name, addToCartBtns[i].dataset.price);
+        cart.push(newItem);
+        console.log(cart);
+        let numberOfItemsInCart = document.getElementById("itemsInCart");
+        numberOfItemsInCart.innerHTML = `Number Of Items ${cart.length}`;
+    });
+}
 
-numberOfItemsInCart.innerHTML = `Number Of Items ${cart.length}`;
+function updateTotal(){
+    cart.forEach(element => {
+        console.log(element);
+        
+    });
+};
+
 displayTotal.innerHTML = `Total $TBD`;
+

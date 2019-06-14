@@ -120,3 +120,11 @@ li {
     float: right;
     margin-right: 10px;
 }
+
+.addToCartButton {
+    float: right;
+    height: 20px;
+    background-color: grey;
+    color: white;
+    border-radius: 15px;
+}
