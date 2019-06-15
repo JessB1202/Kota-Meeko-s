@@ -9,6 +9,10 @@ const toysLink = document.getElementById("toysLink");
 const cleaningLink = document.getElementById("cleaningLink");
 const accessoriesLink = document.getElementById("accessoriesLink");
 
+const productImage = document.querySelectorAll(".logo");
+const productDescription = document.querySelectorAll(".popup");
+const productCover = document.querySelectorAll(".productCover");
+
 class NewItem {
     constructor(_newItemName, _newItemPrice){
         this.name = _newItemName;
@@ -33,26 +37,32 @@ accessoriesLink.addEventListener('click', function(){
 
 });
 
-const productImage = document.querySelectorAll(".logo");
-const productDescription = document.querySelectorAll(".popup");
-
-document.addEventListener("mouseover", function(e){
-    for (let index = 0; index < productImage.length; index++) {
-        if (productImage[index] === e.target) {
-            productDescription[index].style.display = "block";
-            break;
-        }
+let mouseOverHandler = function () {
+    for (let index1 = 0; index1 < productCover.length; index1++) {
+        productCover[index1].addEventListener("mouseover", function(e){
+            for (let index = 0; index < productImage.length; index++) {
+                if (productImage[index] === e.target.nextElementSibling) {
+                    productDescription[index].style.display = "block";
+                }
+            }
+        })
     }
-})
+}
 
-document.addEventListener("mouseout", function(e){
-    for (let index = 0; index < productImage.length; index++) {
-        if (productImage[index] === e.target) {
-            productDescription[index].style.display = "none";
-            break;
-        }
+let mouseOutHandler = function () {
+    for (let index1 = 0; index1 < productCover.length; index1++) {
+        productCover[index1].addEventListener("mouseout", function(e){
+            for (let index = 0; index < productImage.length; index++) {
+                if (productImage[index] === e.target.nextElementSibling) {
+                    productDescription[index].style.display = "none";
+                }
+            }
+        })
     }
-})
+}
+
+mouseOverHandler();
+mouseOutHandler();
 
 let addToCartBtns = document.getElementsByClassName("addToCartButton");
 for(let i = 0; i < addToCartBtns.length; i++){
