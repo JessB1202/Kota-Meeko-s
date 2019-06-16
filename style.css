@@ -59,7 +59,7 @@ li {
     margin: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     transform: translate(-50%, 0%);
     left: 50%;
@@ -78,6 +78,7 @@ li {
 .logo {
     width: 90%;
     height: 90%;
+    z-index: 1;
 }
 
 .popup {
@@ -92,6 +93,15 @@ li {
   color: white;
   background-color: black;
   opacity: 0.6;
+  z-index: 2;
+}
+
+.productCover {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  z-index: 3;
+  opacity: 0;
 }
 
 #cartInfo {
