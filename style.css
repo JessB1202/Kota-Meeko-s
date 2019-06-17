@@ -132,9 +132,11 @@ li {
 }
 
 .addToCartButton {
+    position: relative;
     float: right;
     height: 20px;
     background-color: grey;
     color: white;
     border-radius: 15px;
+    z-index: 5;
 }
