@@ -16,7 +16,7 @@
             <li class="navItems" id="toysLink">Toys!</li>
             <li class="navItems" id="cleaningLink">Cleaning Supplies!</li>
             <li class="navItems" id="accessoriesLink">Accessories!</li>
-            <li class="navItems"><img id="cart" src="img/iconfinder_01_Shopping_Cart_1871419.png" alt="shoppingCart picture"></li>
+            <li class="navItems" id="cartLogoContainer"><img id="cart" src="img/iconfinder_01_Shopping_Cart_1871419.png" alt="shoppingCart picture"><div id="cartLogoNumber"></div></li>
         </ul>
     </header>
 
@@ -131,21 +131,29 @@
             <button type="button" class="addToCartButton" id="sweaterAccessoryButton" data-name="Pet Sweater" data-price="12">Add To Cart</button>
         </div>
     </div>
-    <div id="cartFull">
-        <button type="button" id="checkoutButton">Checkout</button>
+    <div id="checkout">
+        <button type="button" id="checkoutButton"></button>
     </div>
     <div id="myModal" class="modal">
         <div class="modalContent">
-            <span class="close">&times;</span>
+            <span id="modalCloser" class="close">&times;</span>
             <input type="radio" value="cash">
             <p id="cartContent"></p>
         </div>
     </div>
 
-    <div id="cartInfo">
-        <p class="cartInformation" id="displayItemsInCart">Number Of Items 0</p>
-        <p class="cartInformation" id="displayTotal"></p>
+    <div id="myModal2" class="modal">
+            <div class="modalContent itemizedCartContainer">
+                <span id="modal2Closer" class="close">&times;</span>
+                <p id="modal2Content"></p>
+                <p id="subTotal"></p>
+                <p id="tax"></p>
+                <p id="total">Test</p>
+                <button type="button" id="continueShoppingButton" class="modal2Buttons">Continue Shopping</button>
+                <button type="button" id="modal2Checkout" class="modal2Buttons">Checkout</button>
+            </div>
     </div>
+
 
 
 
