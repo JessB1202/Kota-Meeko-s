@@ -25,19 +25,19 @@ class NewItem {
 };
 
 foodLink.addEventListener('click', function(){
-    window.scrollTo(0,0);
+    foodCategory.scrollIntoView({behavior: "smooth", block: "center"})
 });
 
 toysLink.addEventListener('click', function(){
-    toysCategory.scrollIntoView();
+    toysCategory.scrollIntoView({behavior: "smooth", block: "center"});
 });
 
 cleaningLink.addEventListener('click', function(){
-    cleaningCategory.scrollIntoView();
+    cleaningCategory.scrollIntoView({behavior: "smooth", block: "center"});
 });
 
 accessoriesLink.addEventListener('click', function(){
-    accessoriesCategory.scrollIntoView();
+    accessoriesCategory.scrollIntoView({behavior: "smooth", block: "center"});
 
 });
 
