@@ -6,6 +6,7 @@
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 ul {
@@ -143,8 +144,6 @@ li {
     height: 60px;
     background-color: lightgrey;
     width: 100%;
-    margin: 10px;
-    position: relative;
     transform: translate(-50%, 0%);
     left: 50%;
     bottom: 0%;
