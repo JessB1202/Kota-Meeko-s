@@ -130,9 +130,19 @@
             <button type="button" class="addToCartButton" id="sweaterAccessoryButton" data-name="Pet Sweater" data-price="12">Add To Cart</button>
         </div>
     </div>
+    <div id="cartFull">
+        <button type="button" id="checkoutButton">Checkout</button>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modalContent">
+            <span class="close">&times;</span>
+            <input type="radio" value="cash">
+            <p id="cartContent"></p>
+        </div>
+    </div>
 
     <div id="cartInfo">
-        <p class="cartInformation" id="itemsInCart">Number Of Items 0</p>
+        <p class="cartInformation" id="displayItemsInCart">Number Of Items 0</p>
         <p class="cartInformation" id="displayTotal"></p>
     </div>
 
