@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "almaq-rough";
+    src: url("https://use.typekit.net/uey3whf.css");
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -15,6 +20,10 @@ li {
 }
 
 .categories {
+    /* font-family: almaq-rough, sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+    font-family: "almaq-rough";
     margin: 10px;
     width: 80%;
     border: 1px solid blue;
@@ -65,6 +74,14 @@ li {
     left: 50%;
 }
 
+.food {
+    background-color: green;
+}
+
+.toys {
+    background-color: red;
+}
+
 #cartFull {
     width: 80%;
     height: 100%;
@@ -87,7 +104,7 @@ li {
 .product {
     height: 250px;
     width: 250px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     top: 50%;
     transform: translateY(25%);
 }
@@ -102,11 +119,12 @@ li {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-56%, -56%);
   width: 90%;
   height: 90%;
-  margin: auto;
+  margin: 0;
   text-align: center;
+  justify-content: center;
   color: white;
   background-color: black;
   opacity: 0.6;
@@ -115,8 +133,8 @@ li {
 
 .productCover {
   position: absolute;
-  height: 250px;
-  width: 250px;
+  height: 90%;
+  width: 90%;
   z-index: 3;
   opacity: 0;
 }
