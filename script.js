@@ -5,6 +5,10 @@ const foodCategory = document.getElementById("foodCategory");
 const toysCategory = document.getElementById("toysCategory");
 const cleaningCategory = document.getElementById("cleaningCategory");
 const accessoriesCategory = document.getElementById("accessoriesCategory");
+const displayItemsInCart = document.getElementById("itemsInCart");
+const checkoutBtn = document.getElementById("checkoutButton");
+const cartBanner = document.getElementById("cartInfo");
+const cartFullInfo = document.getElementById("cartFull");
 
 const foodLink = document.getElementById("foodLink");
 const toysLink = document.getElementById("toysLink");
@@ -65,6 +69,7 @@ let mouseOutHandler = function () {
     }
 }
 
+
 function calculateTotal() {
     for (let i = 0; i < priceArray.length; i ++){
         cartTotal = (cartTotal + parseInt(priceArray[i]));
@@ -74,6 +79,8 @@ function calculateTotal() {
 mouseOverHandler();
 mouseOutHandler();
 
+let pElement = document.createElement('p');
+
 
 for(let i = 0; i < addToCartBtns.length; i++){
     addToCartBtns[i].addEventListener('click', function(){
@@ -81,14 +88,57 @@ for(let i = 0; i < addToCartBtns.length; i++){
         priceArray.push(parseInt(addToCartBtns[i].dataset.price));
         calculateTotal();
         displayTotal.innerHTML = `Total $${cartTotal}`;
-        console.log(priceArray);
+        // console.log(priceArray);
         cart.push(newItem);
-        // console.log(cart);
-        let numberOfItemsInCart = document.getElementById("itemsInCart");
+        console.log(cart);
+        let numberOfItemsInCart = document.getElementById("displayItemsInCart");
         numberOfItemsInCart.innerHTML = `Number Of Items ${cart.length}`;
     });
 }
 
+
+function displayCart(){
+        for(let i = 0; i < cart.length; i++){
+        let pElement = document.createElement('p');
+        let pTextNode = document.createTextNode(`${cart[i].name} Price: ${cart[i].price}
+        `);
+        modalContent.appendChild(pElement);
+        pElement.appendChild( pTextNode);
+        };
+};
+
+
+
+// Get the modal
+let modal = document.getElementById("myModal");
+let modalContent = document.getElementById("cartContent")
+
+
+// Get the button that opens the modal
+let btn = document.getElementById("checkoutButton");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+checkoutBtn.onclick = function() {
+  modal.style.display = "block";
+  displayCart();
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  modalContent.innerHTML = '';
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    modalContent.innerHTML = '';
+  }
+}
 
 displayTotal.innerHTML = `Total $0`;
 
