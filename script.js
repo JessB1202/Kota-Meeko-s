@@ -105,6 +105,7 @@ for(let i = 0; i < addToCartBtns.length; i++){
     addToCartBtns[i].addEventListener('click', function(){
         newItem = new NewItem (addToCartBtns[i].dataset.name, addToCartBtns[i].dataset.price);
         priceArray.push(parseInt(addToCartBtns[i].dataset.price));
+        calculateTotal();
         console.log(priceArray);
         displayTotal = (parseInt(displayTotal) + parseInt(addToCartBtns[i].dataset.price));
         console.log(priceArray);
