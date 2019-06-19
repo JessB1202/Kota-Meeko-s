@@ -89,6 +89,7 @@ li {
     position: relative;
     transform: translate(-50%, 0%);
     left: 50%;
+}
 
 #checkout {
     border: 1px solid green;
