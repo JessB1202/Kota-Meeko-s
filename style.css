@@ -13,7 +13,9 @@ ul {
 }
 
 li {
-    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: whitesmoke;
 }
 
 .categories {
@@ -42,10 +44,12 @@ li {
 
 #navigationBar {
     position: fixed;
-    background-color: aqua;
+    background-color: blue;
+    border: 3px solid lightsteelblue;
     height: 100px;
     width: 100%;
     z-index: 2;
+
 }
 
 
@@ -69,13 +73,22 @@ li {
     background-color: white;
 }
 
-.food {
+/* .food {
     background-color: green;
 }
 
 .toys {
     background-color: red;
-}
+} */
+
+
+#cartFull {
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid green; */
+    position: relative;
+    transform: translate(-50%, 0%);
+    left: 50%;
 
 #checkout {
     border: 1px solid green;
@@ -139,6 +152,16 @@ li {
   opacity: 0;
 }
 
+
+#cartInfo {
+    height: 60px;
+    /* background-color: lightgrey; */
+    width: 100%;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    bottom: 0%;
+    position: fixed;
+}
 
 .cartInformation {
     font-size: 15px;
