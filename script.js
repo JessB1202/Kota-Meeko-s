@@ -1,6 +1,9 @@
 const cart = [];
 const priceArray = [];
 let cartTotal = 0;
+let displayTotal = 0;
+let total = 0;
+let salesTax = 0;
 const foodCategory = document.getElementById("foodCategory");
 const toysCategory = document.getElementById("toysCategory");
 const cleaningCategory = document.getElementById("cleaningCategory");
@@ -104,12 +107,14 @@ for(let i = 0; i < addToCartBtns.length; i++){
         priceArray.push(parseInt(addToCartBtns[i].dataset.price));
         calculateTotal();
         console.log(priceArray);
+        displayTotal = (parseInt(displayTotal) + parseInt(addToCartBtns[i].dataset.price));
+        console.log(priceArray);
         cart.push(newItem);
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
-        subTotalContainer.innerHTML = (`Subtotal: $${cartTotal}`);
-        let salesTax = (cartTotal * .06);
-        let total = cartTotal + salesTax;
+        subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
+        salesTax = (displayTotal * .06);
+        total = displayTotal + salesTax;
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
 
@@ -137,9 +142,6 @@ function itemizedCart(){
         pElementPrice.appendChild( pTextNodePrice);
 
         modalContent2.appendChild(linebreak);
-
-        
-        
         };
 };
 
@@ -232,7 +234,7 @@ modal.addEventListener("click", function (e) {
         let clientCash = document.createElement("input");
         clientCash.setAttribute("type", "text");
         let inputRequest = document.createElement("p");
-        inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: ${total.value}`;
+        inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: $${total}`;
      
         modalContent.appendChild(cashContainer);
         cashContainer.appendChild(inputRequest);
