@@ -103,7 +103,7 @@ for(let i = 0; i < addToCartBtns.length; i++){
         newItem = new NewItem (addToCartBtns[i].dataset.name, addToCartBtns[i].dataset.price);
         priceArray.push(parseInt(addToCartBtns[i].dataset.price));
         calculateTotal();
-        // console.log(priceArray);
+        console.log(priceArray);
         cart.push(newItem);
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
