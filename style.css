@@ -2,7 +2,6 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: lightblue;
 }
 
 ul {
@@ -26,6 +25,35 @@ li {
     left: 50%;
     background-color: white;
 }
+
+.foods {
+    background-color: rgb(0, 174, 255);
+    margin-right: 10px;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.toy {
+    background-color: mediumorchid;
+    margin-right: 10px;
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.cleans {
+    background-color:  rgb(0, 174, 255);
+    margin-right: 10px;
+    padding-right: 20px;
+    padding-left: 10px;
+} 
+
+.stuff {
+    background-color: mediumorchid;
+    margin-right: 10px;
+    padding-right: 20px;
+    padding-left: 10px;
+} 
 
 #topCategory {
     margin-top: 150px;
@@ -72,15 +100,6 @@ li {
     left: 50%;
     background-color: white;
 }
-
-/* .food {
-    background-color: green;
-}
-
-.toys {
-    background-color: red;
-} */
-
 
 #cartFull {
     width: 80%;
