@@ -37,6 +37,7 @@ class NewItem {
     }
 };
 
+//Scroll functionality for each category from the navigation bar. 
 foodLink.addEventListener('click', function(){
     foodCategory.scrollIntoView({behavior: "smooth", block: "center"})
 });
@@ -55,8 +56,9 @@ accessoriesLink.addEventListener('click', function(){
 });
 
 cartLogoContainer.addEventListener("click", itemizedCart);
+checkoutBtn.addEventListener("click", itemizedCart);
 
-
+//function to show detailed product descriptions upon mouseover
 let mouseOverHandler = function () {
     for (let index1 = 0; index1 < productCover.length; index1++) {
         productCover[index1].addEventListener("mouseover", function(e){
@@ -69,6 +71,7 @@ let mouseOverHandler = function () {
     }
 }
 
+//function to hide product descriptions upon mouseout
 let mouseOutHandler = function () {
     for (let index1 = 0; index1 < productCover.length; index1++) {
         productCover[index1].addEventListener("mouseout", function(e){
@@ -88,6 +91,7 @@ function calculateTotal() {
     };
 };
 
+//calling the product description functions
 mouseOverHandler();
 mouseOutHandler();
 
@@ -146,8 +150,10 @@ function itemizedCart(){
 // Get the modal
 let modal = document.getElementById("myModal");
 let modal2 = document.getElementById("myModal2");
+let modal3 = document.getElementById("myModal3");
 let modalContent = document.getElementById("cartContent");
 let modalContent2 = document.getElementById("modal2Content");
+let modalContent3 = document.getElementById("modal3Content");
 
 
 // Get the button that opens the modal
@@ -155,6 +161,10 @@ let btn = document.getElementById("checkoutButton");
 
 // Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
+
+//Create button that opens modal3
+let submitBtn = document.createElement("button");
+submitBtn.innerHTML = "Submit Payment"
 
 // When the user clicks on the button, open the modal 
 checkoutBtn.onclick = function() {
@@ -173,6 +183,10 @@ modal2Closer.onclick = function() {
     modal2.style.display = "none";
     modal2Content.innerHTML = '';
   }
+modal3Closer.onclick = function() {
+    modal3.style.display = "none";
+    modal3Content.innerHTML = '';
+  }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -183,6 +197,10 @@ window.onclick = function(event) {
   if (event.target == modal2) {
     modal2.style.display = "none";
     modal2Content.innerHTML = '';
+  }
+  if (event.target == modal3) {
+      modal3.style.display = "none";
+      modal3Content.innerHTML = '';
   }
 }
 
@@ -197,4 +215,53 @@ modal2CheckoutBtn.addEventListener("click", ()=>{
     modal.style.display = "block";
 });
 
+submitBtn.addEventListener("click", ()=>{
+    modal.style.display = "none";
+    modalContent.innerHTML = '';
+    modal3.style.display = "block";
+})
 
+let cashOption = document.getElementById("cash");
+let creditOption = document.getElementById("credit");
+
+
+modal.addEventListener("click", function (e) {
+    if (cashOption === e.target) {
+        let cashContainer = document.createElement("div");
+        let clientCash = document.createElement("input");
+        clientCash.setAttribute("type", "text");
+        let inputRequest = document.createElement("p");
+        inputRequest.innerHTML= "Please enter the amount you would like to apply to your payment: ";
+     
+        modalContent.appendChild(cashContainer);
+        cashContainer.appendChild(inputRequest);
+        cashContainer.appendChild(clientCash);
+        
+        modalContent.appendChild(submitBtn);
+
+    }
+    if (creditOption === e.target) {
+        let creditContainer = document.createElement("div");
+        let clientCardNumber = document.createElement("input");
+        let clientCardExpirationDate = document.createElement("input");
+        let clientCardCVV = document.createElement("input");
+        let linebreak = document.createElement("br")
+        let linebreak2 = document.createElement("br");
+
+        clientCardNumber.setAttribute("type", "text");
+        clientCardExpirationDate.setAttribute("type", "text");
+        clientCardCVV.setAttribute("type", "text");
+        clientCardNumber.setAttribute ("placeholder", "Card Number");
+        clientCardExpirationDate.setAttribute("placeholder", "Expiration Date");
+        clientCardCVV.setAttribute("placeholder", "CVV")
+     
+        modalContent.appendChild(creditContainer);
+        creditContainer.appendChild(clientCardNumber);
+        creditContainer.appendChild(linebreak);
+        creditContainer.appendChild(clientCardExpirationDate);
+        creditContainer.appendChild(linebreak2);
+        creditContainer.appendChild(clientCardCVV);
+
+        modalContent.appendChild(submitBtn);
+    }
+}); 
