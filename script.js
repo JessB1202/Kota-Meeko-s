@@ -227,11 +227,12 @@ let creditOption = document.getElementById("credit");
 
 modal.addEventListener("click", function (e) {
     if (cashOption === e.target) {
+        modalContent.innerHTML = '';
         let cashContainer = document.createElement("div");
         let clientCash = document.createElement("input");
         clientCash.setAttribute("type", "text");
         let inputRequest = document.createElement("p");
-        inputRequest.innerHTML= "Please enter the amount you would like to apply to your payment: ";
+        inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: ${total.value}`;
      
         modalContent.appendChild(cashContainer);
         cashContainer.appendChild(inputRequest);
@@ -241,12 +242,19 @@ modal.addEventListener("click", function (e) {
 
     }
     if (creditOption === e.target) {
+        modalContent.innerHTML = '';
         let creditContainer = document.createElement("div");
+        let creditCardIcons = document.createElement("img");
         let clientCardNumber = document.createElement("input");
         let clientCardExpirationDate = document.createElement("input");
         let clientCardCVV = document.createElement("input");
-        let linebreak = document.createElement("br")
+        let linebreak = document.createElement("br");
         let linebreak2 = document.createElement("br");
+        let linebreak3 = document.createElement("br");
+
+        creditCardIcons.src = "img/creditCards.png";
+        creditCardIcons.style.maxHeight = "100px";
+        creditCardIcons.style.maxWidth = "400px";
 
         clientCardNumber.setAttribute("type", "text");
         clientCardExpirationDate.setAttribute("type", "text");
@@ -256,6 +264,8 @@ modal.addEventListener("click", function (e) {
         clientCardCVV.setAttribute("placeholder", "CVV")
      
         modalContent.appendChild(creditContainer);
+        creditContainer.appendChild(creditCardIcons);
+        creditContainer.appendChild(linebreak3);
         creditContainer.appendChild(clientCardNumber);
         creditContainer.appendChild(linebreak);
         creditContainer.appendChild(clientCardExpirationDate);
