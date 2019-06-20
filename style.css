@@ -220,12 +220,48 @@ li {
     z-index: 5;
 }
 
+#modal2Checkout {
+    margin-top: 20px;
+    font-size: 16px;
+    float: right;
+    color: white;
+    background-color: grey;
+    border-radius: 15px;
+    border-style: double;
+    border-width: 5px;
+}
+
+#continueShoppingButton {
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: grey;
+    border-radius: 15px;
+    border-style: double;
+    border-width: 5px;
+}
+
+#submitPayment {
+    float: right;
+    font-size: 16px;
+    color: white;
+    background-color: grey;
+    border-radius: 15px;
+    border-style: double;
+    border-width: 5px;
+}
+
+.totals {
+    margin: 0;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -239,9 +275,51 @@ li {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
+    border-color: blueviolet;
+    border-width: 15px;
   }
   
+  /* view cart styling */
+  h2 {
+      text-align: center;
+  }
+
+  /* checkout view styling*/
+  #modalContent {
+      width: 40%;
+      text-align: center;
+      justify-content: center;
+  }
+
+  input[type=text] {
+    font-size: 14px;
+ }
+
+ #creditCardIcons {
+     height: 25%;
+     width: 25%;
+     object-fit: contain;
+ }
+
+ #creditContainer {
+     text-align: center;
+ }
+
+  /* receipt styling */
+  #modalContent3 {
+    width: 30%;
+  }
+
+  h4 {
+      text-align: center;
+      margin: 0;
+  }
+
+  h5 {
+      text-align: center;
+      margin: 0;
+  }
   /* The Close Button */
   .close {
     color: #aaa;
