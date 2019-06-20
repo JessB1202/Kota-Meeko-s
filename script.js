@@ -119,8 +119,8 @@ for(let i = 0; i < addToCartBtns.length; i++){
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
         subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
-        salesTax = (displayTotal * .06).toFixed(2);
-        total = displayTotal + parseInt(salesTax);
+        salesTax = (displayTotal * .06)
+        total = displayTotal + salesTax;
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
 
