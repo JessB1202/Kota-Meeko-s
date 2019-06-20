@@ -337,11 +337,13 @@ li {
   }
 
   #cartLogoNumber {
-      position: absolute;
-      color: red;
-      top: 0px;
-      right: 0px;
-  }
+    position: absolute;
+    color: red;
+    top: 7px;
+    right: 20px;
+    z-index: 3;
+    font-size: 31px;
+}
 
 .itemizedCartContainer {
     position: relative;
@@ -367,5 +369,6 @@ li {
     color: black;
 }
 
-font-family: 'Montserrat',  sans-serif;
-font-family: 'Heebo', sans-serif;
+button:hover {
+    cursor: pointer;
+}

@@ -15,7 +15,7 @@ const continueShoppingBtn = document.getElementById("continueShoppingButton");
 const modal2CheckoutBtn = document.getElementById("modal2Checkout");
 const cartBanner = document.getElementById("cartInfo");
 const cartFullInfo = document.getElementById("cartFull");
-const cartLogoContainer = document.getElementById("cartLogoContainer");
+const cartLogoContainer = document.getElementById("cart");
 const cartLogoItemCounter = document.getElementById("cartLogoNumber");
 const modalCloser = document.getElementById("modalCloser");
 const modal2Closer = document.getElementById("modal2Closer");
@@ -51,12 +51,24 @@ foodLink.addEventListener('click', function(){
     foodCategory.scrollIntoView({behavior: "smooth", block: "center"})
 });
 
+foodLink.addEventListener("mouseover", function(){
+    foodLink.style.cursor = ("pointer");
+});
+
 toysLink.addEventListener('click', function(){
     toysCategory.scrollIntoView({behavior: "smooth", block: "center"});
 });
 
+toysLink.addEventListener("mouseover", function(){
+    toysLink.style.cursor = ("pointer");
+});
+
 cleaningLink.addEventListener('click', function(){
     cleaningCategory.scrollIntoView({behavior: "smooth", block: "center"});
+});
+
+cleaningLink.addEventListener("mouseover", function(){
+    cleaningLink.style.cursor = ("pointer");
 });
 
 accessoriesLink.addEventListener('click', function(){
@@ -64,8 +76,18 @@ accessoriesLink.addEventListener('click', function(){
 
 });
 
+accessoriesLink.addEventListener("mouseover", function(){
+    accessoriesLink.style.cursor = ("pointer");
+});
+
 cartLogoContainer.addEventListener("click", itemizedCart);
+cartLogoContainer.addEventListener("mouseover", function(){
+    cartLogoContainer.style.cursor = ("pointer");
+});
 checkoutBtn.addEventListener("click", itemizedCart);
+checkoutBtn.addEventListener("mouseover", function(){
+    checkoutBtn.style.cursor = ("pointer");
+});
 
 //function to show detailed product descriptions upon mouseover
 let mouseOverHandler = function () {
@@ -119,7 +141,7 @@ for(let i = 0; i < addToCartBtns.length; i++){
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
         subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
-        salesTax = (displayTotal * .06)
+        salesTax = (displayTotal * .06);
         total = displayTotal + salesTax;
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
