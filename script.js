@@ -51,12 +51,24 @@ foodLink.addEventListener('click', function(){
     foodCategory.scrollIntoView({behavior: "smooth", block: "center"})
 });
 
+foodLink.addEventListener("mouseover", function(){
+    foodLink.style.cursor = ("pointer");
+});
+
 toysLink.addEventListener('click', function(){
     toysCategory.scrollIntoView({behavior: "smooth", block: "center"});
 });
 
+toysLink.addEventListener("mouseover", function(){
+    toysLink.style.cursor = ("pointer");
+});
+
 cleaningLink.addEventListener('click', function(){
     cleaningCategory.scrollIntoView({behavior: "smooth", block: "center"});
+});
+
+cleaningLink.addEventListener("mouseover", function(){
+    cleaningLink.style.cursor = ("pointer");
 });
 
 accessoriesLink.addEventListener('click', function(){
@@ -64,7 +76,14 @@ accessoriesLink.addEventListener('click', function(){
 
 });
 
+accessoriesLink.addEventListener("mouseover", function(){
+    accessoriesLink.style.cursor = ("pointer");
+});
+
 cartLogoContainer.addEventListener("click", itemizedCart);
+cartLogoContainer.addEventListener("mouseover", function(){
+    cartLogoContainer.style.cursor = ("pointer");
+});
 checkoutBtn.addEventListener("click", itemizedCart);
 
 //function to show detailed product descriptions upon mouseover
