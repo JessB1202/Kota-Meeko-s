@@ -34,7 +34,7 @@ li {
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 
@@ -45,6 +45,7 @@ li {
     padding-bottom: 5px;
     padding-right: 20px;
     padding-left: 10px;
+    font-size: 25px;
     text-align: center;
 }
 
@@ -55,6 +56,7 @@ li {
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 25px;
     text-align: center;
 } 
 
@@ -65,6 +67,7 @@ li {
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 25px;
     text-align: center;
 } 
 
@@ -166,7 +169,7 @@ li {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-56%, -30%);
+  transform: translate(-53%, -20%);
   width: 90%;
   height: 90%;
   margin: 0;
@@ -176,6 +179,7 @@ li {
   background-color: black;
   opacity: 0.8;
   z-index: 2;
+  font-size: 20px;
 }
 
 .productCover {
@@ -277,8 +281,8 @@ li {
     padding: 20px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
-    border-color: blueviolet;
-    border-width: 15px;
+    border-color: mediumorchid;
+    border-width: 10px;
   }
   
   /* view cart styling */
@@ -321,6 +325,15 @@ li {
       text-align: center;
       margin: 0;
   }
+
+  #receiptLogo {
+    position: relative;
+    left: 135px;
+    height: 35%;
+    width: 35%;
+    object-fit: 
+}
+
   /* The Close Button */
   .close {
     color: #aaa;
