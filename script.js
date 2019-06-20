@@ -85,6 +85,9 @@ cartLogoContainer.addEventListener("mouseover", function(){
     cartLogoContainer.style.cursor = ("pointer");
 });
 checkoutBtn.addEventListener("click", itemizedCart);
+checkoutBtn.addEventListener("mouseover", function(){
+    checkoutBtn.style.cursor = ("pointer");
+});
 
 //function to show detailed product descriptions upon mouseover
 let mouseOverHandler = function () {
