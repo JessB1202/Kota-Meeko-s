@@ -195,6 +195,7 @@ let span = document.getElementsByClassName("close")[0];
 //Create button that opens modal3
 let submitBtn = document.createElement("button");
 submitBtn.innerHTML = "Submit Payment"
+submitBtn.setAttribute("id", "submitPayment");
 
 // When the user clicks on the button, open the modal 
 checkoutBtn.onclick = function() {
@@ -264,12 +265,14 @@ modal.addEventListener("click", function (e) {
         clientCash.setAttribute("id", "clientCash");
         let inputRequest = document.createElement("p");
         inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: $${total}`;
+        // submitBtn.id = "submitPayment";
      
         modalContent.appendChild(cashContainer);
         cashContainer.appendChild(inputRequest);
         cashContainer.appendChild(clientCash);
         
         modalContent.appendChild(submitBtn);
+        
         submitBtn.addEventListener("click", function(){
             cashValue = parseInt(clientCash.value);
             console.log(cashValue);
@@ -281,6 +284,7 @@ modal.addEventListener("click", function (e) {
             receiptChange.innerHTML = `Your Change is $${clientChange}`;
         });
         submitBtn.addEventListener("click", receiptItemizedCart);
+        
 
     }
     if (creditOption === e.target) {
@@ -298,12 +302,14 @@ modal.addEventListener("click", function (e) {
         creditCardIcons.style.maxHeight = "100px";
         creditCardIcons.style.maxWidth = "400px";
 
+        creditContainer.setAttribute("id", "creditContainer");
         clientCardNumber.setAttribute("type", "text");
         clientCardExpirationDate.setAttribute("type", "text");
         clientCardCVV.setAttribute("type", "text");
         clientCardNumber.setAttribute ("placeholder", "Card Number");
         clientCardExpirationDate.setAttribute("placeholder", "Expiration Date");
-        clientCardCVV.setAttribute("placeholder", "CVV")
+        clientCardCVV.setAttribute("placeholder", "CVV");
+        creditCardIcons.setAttribute("id", "creditCardIcons");
      
         modalContent.appendChild(creditContainer);
         creditContainer.appendChild(creditCardIcons);
