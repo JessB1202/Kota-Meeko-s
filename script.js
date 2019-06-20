@@ -4,6 +4,7 @@ let cartTotal = 0;
 let displayTotal = 0;
 let total = 0;
 let salesTax = 0;
+let cashValue;
 const foodCategory = document.getElementById("foodCategory");
 const toysCategory = document.getElementById("toysCategory");
 const cleaningCategory = document.getElementById("cleaningCategory");
@@ -21,6 +22,11 @@ const modal2Closer = document.getElementById("modal2Closer");
 const subTotalContainer = document.getElementById("subTotal");
 const taxContainer = document.getElementById("tax");
 const totalContainer = document.getElementById("total");
+const receiptSubtotal = document.getElementById("receiptSubtotal");
+const receiptTax = document.getElementById("receiptTax");
+const receiptTotal = document.getElementById("receiptTotal");
+const amountApplied = document.getElementById("receiptApplied");
+const receiptChange = document.getElementById("receiptChange");
 
 const foodLink = document.getElementById("foodLink");
 const toysLink = document.getElementById("toysLink");
@@ -113,7 +119,7 @@ for(let i = 0; i < addToCartBtns.length; i++){
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
         subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
-        salesTax = (displayTotal * .06);
+        salesTax = (displayTotal * .06)
         total = displayTotal + salesTax;
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
@@ -145,6 +151,28 @@ function itemizedCart(){
         };
 };
 
+function receiptItemizedCart(){
+    for(let i = 0; i < cart.length; i++){
+    let pElementName = document.createElement('p');
+    pElementName.className = ("itemizedCartName");
+
+    let pElementPrice = document.createElement('p');
+    pElementPrice.className = ("itemizedCartPrice");
+
+    let linebreak = document.createElement("br");
+
+    let pTextNodeName = document.createTextNode(`${cart[i].name}`);
+    let pTextNodePrice = document.createTextNode(` Price: $${cart[i].price}`)
+
+    modalContent3.appendChild(pElementName);
+    pElementName.appendChild( pTextNodeName);
+
+    modalContent3.appendChild(pElementPrice);
+    pElementPrice.appendChild( pTextNodePrice);
+
+    modalContent3.appendChild(linebreak);
+    };
+};
 
 
 
@@ -167,6 +195,7 @@ let span = document.getElementsByClassName("close")[0];
 //Create button that opens modal3
 let submitBtn = document.createElement("button");
 submitBtn.innerHTML = "Submit Payment"
+submitBtn.setAttribute("id", "submitPayment");
 
 // When the user clicks on the button, open the modal 
 checkoutBtn.onclick = function() {
@@ -233,14 +262,29 @@ modal.addEventListener("click", function (e) {
         let cashContainer = document.createElement("div");
         let clientCash = document.createElement("input");
         clientCash.setAttribute("type", "text");
+        clientCash.setAttribute("id", "clientCash");
         let inputRequest = document.createElement("p");
         inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: $${total}`;
+        // submitBtn.id = "submitPayment";
      
         modalContent.appendChild(cashContainer);
         cashContainer.appendChild(inputRequest);
         cashContainer.appendChild(clientCash);
         
         modalContent.appendChild(submitBtn);
+        
+        submitBtn.addEventListener("click", function(){
+            cashValue = parseInt(clientCash.value);
+            console.log(cashValue);
+            receiptSubtotal.innerHTML = `Subtotal: $${displayTotal}`;
+            receiptTax.innerHTML = `Sales Tax: $${salesTax}`;
+            receiptTotal.innerHTML = `Grand Total: $${total}`;
+            amountApplied.innerHTML = `You Paid: $${cashValue}`;
+            let clientChange = (cashValue - total).toFixed(2);
+            receiptChange.innerHTML = `Your Change is $${clientChange}`;
+        });
+        submitBtn.addEventListener("click", receiptItemizedCart);
+        
 
     }
     if (creditOption === e.target) {
@@ -258,12 +302,14 @@ modal.addEventListener("click", function (e) {
         creditCardIcons.style.maxHeight = "100px";
         creditCardIcons.style.maxWidth = "400px";
 
+        creditContainer.setAttribute("id", "creditContainer");
         clientCardNumber.setAttribute("type", "text");
         clientCardExpirationDate.setAttribute("type", "text");
         clientCardCVV.setAttribute("type", "text");
         clientCardNumber.setAttribute ("placeholder", "Card Number");
         clientCardExpirationDate.setAttribute("placeholder", "Expiration Date");
-        clientCardCVV.setAttribute("placeholder", "CVV")
+        clientCardCVV.setAttribute("placeholder", "CVV");
+        creditCardIcons.setAttribute("id", "creditCardIcons");
      
         modalContent.appendChild(creditContainer);
         creditContainer.appendChild(creditCardIcons);
@@ -275,5 +321,11 @@ modal.addEventListener("click", function (e) {
         creditContainer.appendChild(clientCardCVV);
 
         modalContent.appendChild(submitBtn);
+        submitBtn.addEventListener("click", receiptItemizedCart);
+        receiptSubtotal.innerHTML = `Subtotal: $${displayTotal}`;
+        receiptTax.innerHTML = `Sales Tax: $${salesTax}`;
+        receiptTotal.innerHTML = `Grand Total: $${total}`;
+        amountApplied.innerHTML = `You Paid: $${total}`;
+        receiptChange.innerHTML = `Your Change is $0`;
     }
 }); 
