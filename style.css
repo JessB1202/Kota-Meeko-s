@@ -369,5 +369,6 @@ li {
     color: black;
 }
 
-/* font-family: 'Montserrat',  sans-serif;
-font-family: 'Heebo', sans-serif; */
+button:hover {
+    cursor: pointer;
+}
