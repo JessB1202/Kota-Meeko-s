@@ -4,6 +4,7 @@ let cartTotal = 0;
 let displayTotal = 0;
 let total = 0;
 let salesTax = 0;
+let cashValue;
 const foodCategory = document.getElementById("foodCategory");
 const toysCategory = document.getElementById("toysCategory");
 const cleaningCategory = document.getElementById("cleaningCategory");
@@ -21,6 +22,11 @@ const modal2Closer = document.getElementById("modal2Closer");
 const subTotalContainer = document.getElementById("subTotal");
 const taxContainer = document.getElementById("tax");
 const totalContainer = document.getElementById("total");
+const receiptSubtotal = document.getElementById("receiptSubtotal");
+const receiptTax = document.getElementById("receiptTax");
+const receiptTotal = document.getElementById("receiptTotal");
+const amountApplied = document.getElementById("receiptApplied");
+const receiptChange = document.getElementById("receiptChange");
 
 const foodLink = document.getElementById("foodLink");
 const toysLink = document.getElementById("toysLink");
@@ -113,8 +119,8 @@ for(let i = 0; i < addToCartBtns.length; i++){
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
         subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
-        salesTax = (displayTotal * .06);
-        total = displayTotal + salesTax;
+        salesTax = (displayTotal * .06).toFixed(2);
+        total = displayTotal + parseInt(salesTax);
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
 
@@ -145,6 +151,28 @@ function itemizedCart(){
         };
 };
 
+function receiptItemizedCart(){
+    for(let i = 0; i < cart.length; i++){
+    let pElementName = document.createElement('p');
+    pElementName.className = ("itemizedCartName");
+
+    let pElementPrice = document.createElement('p');
+    pElementPrice.className = ("itemizedCartPrice");
+
+    let linebreak = document.createElement("br");
+
+    let pTextNodeName = document.createTextNode(`${cart[i].name}`);
+    let pTextNodePrice = document.createTextNode(` Price: $${cart[i].price}`)
+
+    modalContent3.appendChild(pElementName);
+    pElementName.appendChild( pTextNodeName);
+
+    modalContent3.appendChild(pElementPrice);
+    pElementPrice.appendChild( pTextNodePrice);
+
+    modalContent3.appendChild(linebreak);
+    };
+};
 
 
 
@@ -233,6 +261,7 @@ modal.addEventListener("click", function (e) {
         let cashContainer = document.createElement("div");
         let clientCash = document.createElement("input");
         clientCash.setAttribute("type", "text");
+        clientCash.setAttribute("id", "clientCash");
         let inputRequest = document.createElement("p");
         inputRequest.innerHTML= `Please enter the amount you would like to apply toward your total: $${total}`;
      
@@ -241,6 +270,17 @@ modal.addEventListener("click", function (e) {
         cashContainer.appendChild(clientCash);
         
         modalContent.appendChild(submitBtn);
+        submitBtn.addEventListener("click", function(){
+            cashValue = parseInt(clientCash.value);
+            console.log(cashValue);
+            receiptSubtotal.innerHTML = `Subtotal: $${displayTotal}`;
+            receiptTax.innerHTML = `Sales Tax: $${salesTax}`;
+            receiptTotal.innerHTML = `Grand Total: $${total}`;
+            amountApplied.innerHTML = `You Paid: $${cashValue}`;
+            let clientChange = (cashValue - total).toFixed(2);
+            receiptChange.innerHTML = `Your Change is $${clientChange}`;
+        });
+        submitBtn.addEventListener("click", receiptItemizedCart);
 
     }
     if (creditOption === e.target) {
@@ -275,5 +315,11 @@ modal.addEventListener("click", function (e) {
         creditContainer.appendChild(clientCardCVV);
 
         modalContent.appendChild(submitBtn);
+        submitBtn.addEventListener("click", receiptItemizedCart);
+        receiptSubtotal.innerHTML = `Subtotal: $${displayTotal}`;
+        receiptTax.innerHTML = `Sales Tax: $${salesTax}`;
+        receiptTotal.innerHTML = `Grand Total: $${total}`;
+        amountApplied.innerHTML = `You Paid: $${total}`;
+        receiptChange.innerHTML = `Your Change is $0`;
     }
 }); 
