@@ -327,11 +327,20 @@ li {
   }
 
   #receiptLogo {
+    display: block;
     position: relative;
-    left: 135px;
+    margin: auto;
+    /* left: 135px; */
     height: 35%;
     width: 35%;
-    object-fit: 
+}
+
+.totalLine {
+    border-bottom: dotted;
+}
+
+.paymentLine {
+    border-bottom: dotted;
 }
 
   /* The Close Button */
