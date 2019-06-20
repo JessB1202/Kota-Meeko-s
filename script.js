@@ -15,7 +15,7 @@ const continueShoppingBtn = document.getElementById("continueShoppingButton");
 const modal2CheckoutBtn = document.getElementById("modal2Checkout");
 const cartBanner = document.getElementById("cartInfo");
 const cartFullInfo = document.getElementById("cartFull");
-const cartLogoContainer = document.getElementById("cartLogoContainer");
+const cartLogoContainer = document.getElementById("cart");
 const cartLogoItemCounter = document.getElementById("cartLogoNumber");
 const modalCloser = document.getElementById("modalCloser");
 const modal2Closer = document.getElementById("modal2Closer");
@@ -119,7 +119,7 @@ for(let i = 0; i < addToCartBtns.length; i++){
         console.log(cart);
         cartLogoItemCounter.innerHTML = cart.length;
         subTotalContainer.innerHTML = (`Subtotal: $${displayTotal}`);
-        salesTax = (displayTotal * .06)
+        salesTax = (displayTotal * .06);
         total = displayTotal + salesTax;
         taxContainer.innerHTML = (`Tax: $${salesTax}`);
         totalContainer.innerHTML = (`Grand Total: $${total}`);
