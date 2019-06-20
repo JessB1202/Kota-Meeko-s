@@ -40,9 +40,11 @@ const productDescription = document.querySelectorAll(".popup");
 const productCover = document.querySelectorAll(".productCover");
 
 class NewItem {
-    constructor(_newItemName, _newItemPrice){
+    constructor(_newItemName, _newItemPrice, _newItemCategory, _newItemDescription){
         this.name = _newItemName;
         this.price = _newItemPrice;
+        this.category = _newItemCategory;
+        this.description = _newItemDescription;
     }
 };
 
@@ -131,7 +133,7 @@ let pElement = document.createElement('p');
 
 for(let i = 0; i < addToCartBtns.length; i++){
     addToCartBtns[i].addEventListener('click', function(){
-        newItem = new NewItem (addToCartBtns[i].dataset.name, addToCartBtns[i].dataset.price);
+        newItem = new NewItem (addToCartBtns[i].dataset.name, addToCartBtns[i].dataset.price, addToCartBtns[i].dataset.category, addToCartBtns[i].dataset.description);
         priceArray.push(parseInt(addToCartBtns[i].dataset.price));
         calculateTotal();
         console.log(priceArray);
